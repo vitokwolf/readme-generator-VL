@@ -62,7 +62,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please add any instructions for installation.',
+        message: 'Please add any instructions for installation.(Required)',
         name: 'install',
         when: ({ confirmInstall }) => confirmInstall,
         validate: instInput => {
@@ -83,7 +83,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Please provide any information on how to use the application!',
+        message: 'Please provide any information on how to use the application!(Required)',
         when: ({ confirmUsage }) => confirmUsage,
         validate: useInput => {
             if (useInput) {
@@ -102,19 +102,11 @@ const questions = [
         default: true
     },
     {
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
-        message: 'What type of license(s) this project have?',
-        choices: ["MIT", "Apache-2.0", "Creative Commons 1.0", "GPLv3", "WTFPL"],
+        message: 'What type of license this project have? (Required)',
+        choices: ["MIT", "Apache-2.0", "Creative Commons 1.0", "GPLv3", "WTFPL", "Other", "None"],
         when: ({ confirmLicense }) => confirmLicense,
-        validate: licenseInput => {
-            if (licenseInput) {
-                return true;
-            } else {
-                console.log('Choose at least one license please!');
-                return false;
-            }
-        }
     },
     {
         type: 'confirm',
@@ -170,9 +162,14 @@ const questions = [
     {
         type: 'input',
         name: 'altscreenshotInput',
-        message: 'Please provide a description of your screenshot. (Optional)'
+        message: 'Please provide a description of your screenshot. (Optional)',
+        default: 'this is how the project looks/operates'
     }
 ];
 // End array of questions 
 
-
+// Start inquirer prompt
+inquirer.prompt(questions).then((response) => {
+    console.log(response);
+})
+// End inquirer prompt
