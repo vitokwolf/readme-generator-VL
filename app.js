@@ -1,4 +1,6 @@
+const fs = require('fs');
 const inquirer = require('inquirer');
+const generateReadme = require('./src/readme-template');
 
 // Start array of questions 
 const questions = [
@@ -169,7 +171,30 @@ const questions = [
 // End array of questions 
 
 // Start inquirer prompt
-inquirer.prompt(questions).then((response) => {
-    console.log(response);
-})
+const promptUser = ()=> {
+return inquirer.prompt(questions)
+};
 // End inquirer prompt
+
+// Start write file
+const writeFile = (data) => {
+    fs.writeFile(`./dist/README.md`, data, err => {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("Congratulations, your README.md file is now ready for your new application!")
+    });
+}
+// End write file
+
+// chain of promisses that creates the readme
+promptUser()
+.then((readmeData) => {
+    console.log(readmeData);
+    return generateReadme(readmeData)
+})
+.then(readme => {
+    return writeFile(readme)
+})
+

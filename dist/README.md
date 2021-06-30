@@ -1,8 +1,7 @@
-generateReadme = response => {
-    return `# ${response.title}
+# readme generator
 </br>
 ## Description
-${response.description}
+lorem lorem
 </br>
 ## Table of Contents
 * [Installation](#Installation)
@@ -14,34 +13,32 @@ ${response.description}
 * [Deployment](#deployment)
 </br>
 ## Installation
-* ${response.install}
+</br>
+### Installation notes:
+* undefined
 </br>
 ## Usage
-${response.usage}
+undefined
 </br>
 ## Screenshot
-![A sample screenshot of a Project](${response.screenshot})
+![A sample screenshot of a Project](https/ss)
 </br>
 ## License 
-${response.license}
+undefined
 </br>
 ## Badges
-${response.badges}
+undefined
 </br>
 ## Contributors
-${response.contributors}
+undefined
 </br>
 ## Deployment
-View the deployed page at [${response.title}](${response.deployment})
+View the deployed page at [readme generator](https/live)
 </br>
 
 </br>
 Would you like to reach us?
 </br>
 Contact Me:
-Github: ${response.github}
-Email: ${response.email}
-`;
-}
-
-module.exports = generateReadme;
+Github: vitokwolf
+Email: vitokwolf/github
