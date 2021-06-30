@@ -1,0 +1,26 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "The application will prompt the user with a series of questions. Then will generate a professional README.md file based on the answers given.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitokwolf/readme-generator-VL.git"
+  },
+  "keywords": [
+    "readme",
+    "challenge-9"
+  ],
+  "author": "Victor Lupascu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vitokwolf/readme-generator-VL/issues"
+  },
+  "homepage": "https://github.com/vitokwolf/readme-generator-VL#readme",
+  "dependencies": {
+    "inquirer": "^8.1.1"
+  }
+}
