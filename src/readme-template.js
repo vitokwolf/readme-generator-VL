@@ -78,7 +78,7 @@ module.exports = templateData => {
     const { Install, Usage, License, Badges, Contributors, Tests, ...theRest } = templateData;
     return `
 # ${theRest.title}
-___
+
 ## Description
 ${theRest.description}
 ___
