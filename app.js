@@ -1,6 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadme = require('./src/readme-template');
+const {writeFile} = require('./utils/create-markdown.js')
 
 // Start array of questions 
 const questions = [
@@ -145,8 +146,9 @@ const questions = [
         type: 'input',
         name: 'Test',
         message: 'How to test this application?',
-        default: 'Run the javascript file in node and check for errors',
-    },
+        when: ({ confirmTest }) => confirmTest,
+        default: 'Run the javascript file in node and check for errors'
+        },
     {
         type: 'input',
         name: 'Deployment',
@@ -181,25 +183,15 @@ const promptUser = () => {
 };
 // End inquirer prompt
 
-// Start write file
-const writeFile = (data) => {
-    fs.writeFile(`./dist/README.md`, data, err => {
-        if (err) {
-            return console.log(err);
-        }
-
-        console.log("Congratulations, your README.md file is now ready for your new application!")
-    });
-}
-// End write file
-
-// chain of promisses that creates the readme
+// chain of promisses that creates the final markdown file
 promptUser()
-    .then((readmeData) => {
-        console.log(readmeData);
-        return generateReadme(readmeData)
+    .then(readmeData => {
+        return generateReadme(readmeData);
     })
     .then(readme => {
-        return writeFile(readme)
+        return writeFile(readme);
     })
+    .catch(err => {
+        console.log(err);
+    });
 
