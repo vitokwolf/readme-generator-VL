@@ -27,7 +27,7 @@ After installation is complete, run `node app` command in terminal to start the 
 
 ___
 ## License
-MIT
+[MIT](https://choosealicense.com/licenses/)
 
 
 

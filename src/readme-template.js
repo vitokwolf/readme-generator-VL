@@ -32,7 +32,7 @@ const generateLicense = sectionText => {
     return `
 ___
 ## License
-${sectionText}
+[${sectionText}](https://choosealicense.com/licenses/)
 `;
 }; 
 
