@@ -91,6 +91,7 @@ ___
 * [Test](#test)
 * [Demo](#demo)
 * [Deployment](#deployment)
+* [Questions?](#questions)
 ${generateInstall(Install)}
 ${generateUsage(Usage)}
 ${generateLicense(License)}
@@ -104,9 +105,9 @@ ___
 ## Deployment
 View the deployed page at : ${theRest.deployment}
 ___
-## Questions?</br>
+## Questions?
 Contact Me:
-* Github: ${theRest.github}
+* Github: https://github.com/${theRest.github}/${theRest.title}
 * Email: ${theRest.email}
 `;
 };

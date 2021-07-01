@@ -33,7 +33,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Please provide a project title! (Required)',
+        message: 'What is the name of the repository? This will be used as ReadMe title! (Required)',
         name: 'title',
         validate: tittleInput => {
             if (tittleInput) {
@@ -151,14 +151,14 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'Deployment',
+        name: 'deployment',
         message: 'Please provide a link to your deployed application. ',
-        default: 'See GitHub link'
+        default: 'See GitHub link in the Questions section'
     },
     {
         type: 'input',
-        name: 'Screenshot',
-        message: 'Please provide a link of the screenshot or video-demo of the Project. (Required)',
+        name: 'screenshot',
+        message: 'Please provide a link/path of the screenshot or video-demo of the Project. (Required)',
         validate: screenshotInput => {
             if (screenshotInput) {
                 return true;
@@ -172,7 +172,7 @@ const questions = [
         type: 'input',
         name: 'altScreenshotInput',
         message: 'Please provide alt text to the screenshot. (Optional)',
-        default: 'GitHub Logo'
+        default: 'alt text'
     }
 ];
 // End array of questions 
