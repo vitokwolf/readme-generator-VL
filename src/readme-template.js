@@ -102,7 +102,7 @@ ___
 ![${theRest.altScreenshotInput}](${theRest.screenshot})
 ___
 ## Deployment
-View the deployed page at [${theRest.title}](${theRest.deployment})
+View the deployed page at : ${theRest.deployment}
 ___
 ## Questions?</br>
 Contact Me:
