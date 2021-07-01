@@ -16,17 +16,17 @@ ___
 * [Questions?](#questions)
 
 ___
-## Installation</br>
+## Installation
 To run the app, User will need to have node installed.</br>* Clone the repo to the project folder;</br>* Navigate to the root folder of the app(where app.js is located);</br>* Run `npm install` command to add necessary dependencies.
 
 
 ___
-## Usage</br>
+## Usage
 After installation is complete, run `node app` command in terminal to start the application. Then User will be prompted with a series of questions, some are required and some are optional, depending on the type of project. When User is done with the prompts, a confirming message will show and the new created ReadMe file will be located in the `dist` folder.
 
 
 ___
-## License</br>
+## License
 MIT
 
 
