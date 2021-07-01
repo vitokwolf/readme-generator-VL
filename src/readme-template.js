@@ -7,7 +7,7 @@ const generateInstall = sectionText => {
     };
     return `
 ___
-## Installation</br>
+## Installation
 ${sectionText}
 `;
 };
@@ -19,7 +19,7 @@ const generateUsage = sectionText => {
     };
     return `
 ___
-## Usage</br>
+## Usage
 ${sectionText}
 `;
 }; 
@@ -31,7 +31,7 @@ const generateLicense = sectionText => {
     };
     return `
 ___
-## License</br>
+## License
 ${sectionText}
 `;
 }; 
@@ -43,7 +43,7 @@ const generateBadges = sectionText => {
     };
     return `
 ___
-## Badges</br>
+## Badges
 ${sectionText}
 `;
 }; 
@@ -55,7 +55,7 @@ const generateContibutor = sectionText => {
     };
     return `
 ___
-## Contributing</br>
+## Contributing
 ${sectionText}
 `;
 }; 
@@ -67,7 +67,7 @@ const generateTest = sectionText => {
     };
     return `
 ___
-## Tests</br>
+## Tests
 ${sectionText}
 `;
 };
