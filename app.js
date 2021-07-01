@@ -1,7 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadme = require('./src/readme-template');
-const {writeFile} = require('./utils/create-markdown.js')
+const writeFile = require('./utils/create-markdown.js')
 
 // Start array of questions 
 const questions = [
@@ -148,7 +148,7 @@ const questions = [
         message: 'How to test this application?',
         when: ({ confirmTest }) => confirmTest,
         default: 'Run the javascript file in node and check for errors'
-        },
+    },
     {
         type: 'input',
         name: 'Deployment',
@@ -190,6 +190,9 @@ promptUser()
     })
     .then(readme => {
         return writeFile(readme);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse.message);
     })
     .catch(err => {
         console.log(err);
