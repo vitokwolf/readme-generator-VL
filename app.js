@@ -136,6 +136,18 @@ const questions = [
         when: ({ confirmContributors }) => confirmContributors
     },
     {
+        type: 'confirm',
+        name: 'confirmTest',
+        message: 'Do you have recommendations on how to run tests on the Project?',
+        default: false
+    },
+    {
+        type: 'input',
+        name: 'test',
+        message: 'How to test this application?',
+        default: 'Run the javascript file in node and check for errors',      
+    },
+    {
         type: 'input',
         name: 'deployment',
         message: 'Please provide a link to your deployed application.(Required)',

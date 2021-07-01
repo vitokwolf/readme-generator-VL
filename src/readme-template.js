@@ -31,12 +31,15 @@ ${response.badges}
 ## Contributors
 ${response.contributors}
 </br>
+## Tests
+${response.test}
+</br>
 ## Deployment
 View the deployed page at [${response.title}](${response.deployment})
 </br>
 
 </br>
-Would you like to reach us?
+## Questions?
 </br>
 Contact Me:
 Github: ${response.github}
