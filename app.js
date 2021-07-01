@@ -65,7 +65,7 @@ const questions = [
     {
         type: 'input',
         message: 'Please add any instructions for installation.(Required)',
-        name: 'install',
+        name: 'Install',
         when: ({ confirmInstall }) => confirmInstall,
         validate: instInput => {
             if (instInput) {
@@ -84,7 +84,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'usage',
+        name: 'Usage',
         message: 'Please provide any information on how to use the application!(Required)',
         when: ({ confirmUsage }) => confirmUsage,
         validate: useInput => {
@@ -105,7 +105,7 @@ const questions = [
     },
     {
         type: 'list',
-        name: 'license',
+        name: 'License',
         message: 'What type of license this project have? (Required)',
         choices: ["MIT", "Apache-2.0", "Creative Commons 1.0", "GPLv3", "WTFPL", "Other", "None"],
         when: ({ confirmLicense }) => confirmLicense,
@@ -118,7 +118,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'badges',
+        name: 'Badges',
         message: 'What badges did you want to add to this project? (Copy them into the input)',
         when: ({ confirmBadges }) => confirmBadges
 
@@ -131,7 +131,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'contributors',
+        name: 'Contributors',
         message: 'Please add the GitHub usernames of the contributors!',
         when: ({ confirmContributors }) => confirmContributors
     },
@@ -143,26 +143,19 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'test',
+        name: 'Test',
         message: 'How to test this application?',
-        default: 'Run the javascript file in node and check for errors',      
+        default: 'Run the javascript file in node and check for errors',
     },
     {
         type: 'input',
-        name: 'deployment',
-        message: 'Please provide a link to your deployed application.(Required)',
-        validate: deployInput => {
-            if (deployInput) {
-                return true;
-            } else {
-                console.log('Please provide a link to your deployed application.');
-                return false;
-            }
-        }
+        name: 'Deployment',
+        message: 'Please provide a link to your deployed application. ',
+        default: 'See GitHub link'
     },
     {
         type: 'input',
-        name: 'screenshot',
+        name: 'Screenshot',
         message: 'Please provide a link of the screenshot or video-demo of the Project. (Required)',
         validate: screenshotInput => {
             if (screenshotInput) {
@@ -175,16 +168,16 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'altscreenshotInput',
-        message: 'Please provide a description of your screenshot. (Optional)',
-        default: 'this is how the project looks/operates'
+        name: 'altScreenshotInput',
+        message: 'Please provide alt text to the screenshot. (Optional)',
+        default: 'GitHub Logo'
     }
 ];
 // End array of questions 
 
 // Start inquirer prompt
-const promptUser = ()=> {
-return inquirer.prompt(questions)
+const promptUser = () => {
+    return inquirer.prompt(questions)
 };
 // End inquirer prompt
 
@@ -202,11 +195,11 @@ const writeFile = (data) => {
 
 // chain of promisses that creates the readme
 promptUser()
-.then((readmeData) => {
-    console.log(readmeData);
-    return generateReadme(readmeData)
-})
-.then(readme => {
-    return writeFile(readme)
-})
+    .then((readmeData) => {
+        console.log(readmeData);
+        return generateReadme(readmeData)
+    })
+    .then(readme => {
+        return writeFile(readme)
+    })
 

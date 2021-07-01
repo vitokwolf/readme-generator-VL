@@ -1,50 +1,112 @@
-generateReadme = response => {
-    return `# ${response.title}
-</br>
-## Description
-${response.description}
-</br>
-## Table of Contents
-* [Installation](#Installation)
-* [Usage](#Usage)
-* [License](#License)
-* [Contributing](#Contributing)
-* [Test](#Test)
-* [Screenshot](#screenshot)
-* [Deployment](#deployment)
-</br>
-## Installation
-* ${response.install}
-</br>
-## Usage
-${response.usage}
-</br>
-## Screenshot
-![A sample screenshot of a Project](${response.screenshot})
-</br>
-## License 
-${response.license}
-</br>
-## Badges
-${response.badges}
-</br>
-## Contributors
-${response.contributors}
-</br>
-## Tests
-${response.test}
-</br>
-## Deployment
-View the deployed page at [${response.title}](${response.deployment})
-</br>
+// create a function for each section to populate the data only if there is any input provided
 
-</br>
-## Questions?
-</br>
-Contact Me:
-Github: ${response.github}
-Email: ${response.email}
+// Installation
+const generateInstall = sectionText => {
+    if (!sectionText) {
+        return '';
+    };
+    return `
+___
+## Installation</br>
+${sectionText}
 `;
-}
+};
 
-module.exports = generateReadme;
+// Usage
+const generateUsage = sectionText => {
+    if (!sectionText) {
+        return '';
+    };
+    return `
+___
+## Usage</br>
+${sectionText}
+`;
+}; 
+
+// License
+const generateLicense = sectionText => {
+    if (!sectionText) {
+        return '';
+    };
+    return `
+___
+## License</br>
+${sectionText}
+`;
+}; 
+
+// Badges
+const generateBadges = sectionText => {
+    if (!sectionText) {
+        return '';
+    };
+    return `
+___
+## Badges</br>
+${sectionText}
+`;
+}; 
+
+// Contributions
+const generateContibutor = sectionText => {
+    if (!sectionText) {
+        return '';
+    };
+    return `
+___
+## Contributing</br>
+${sectionText}
+`;
+}; 
+
+// Tests
+const generateTest = sectionText => {
+    if (!sectionText) {
+        return '';
+    };
+    return `
+___
+## Tests</br>
+${sectionText}
+`;
+};
+
+// export template markdown file
+module.exports = templateData => {
+    // destructure data by sections
+    const { Install, Usage, License, Badges, Contributors, Tests, ...theRest } = templateData;
+    return `
+# ${theRest.title}
+___
+## Description
+${theRest.description}
+___
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Badges](#badges)
+* [Contributing](#contributing)
+* [Test](#test)
+* [Demo](#demo)
+* [Deployment](#deployment)
+${generateInstall(Install)}
+${generateUsage(Usage)}
+${generateLicense(License)}
+${generateBadges(Badges)}
+${generateContibutor(Contributors)}
+${generateTest(Tests)}
+___
+## Demo
+![${theRest.altScreenshotInput}](${theRest.screenshot})
+___
+## Deployment
+View the deployed page at [${theRest.title}](${theRest.deployment})
+___
+## Questions?</br>
+Contact Me:
+* Github: ${theRest.github}
+* Email: ${theRest.email}
+`;
+};
