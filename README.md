@@ -1,6 +1,6 @@
 
 # ReadMe-Generator-VL
-___
+
 ## Description
 A simple application to create professional markdown files for any project.
 ___
