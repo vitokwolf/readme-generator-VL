@@ -22,19 +22,39 @@ ___
 ## Usage
 ${sectionText}
 `;
-}; 
+};
 
 // License
 const generateLicense = sectionText => {
-    if (!sectionText) {
+    if (!sectionText || sectionText === 'None') {
         return '';
-    };
-    return `
-___
-## License
-[${sectionText}](https://choosealicense.com/licenses/)
+    }
+    else if (sectionText === 'MIT') {
+        return `
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 `;
-}; 
+    }
+    else if (sectionText === 'Apache-2.0') {
+        return `
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+`;
+    }
+    else if (sectionText === 'Creative Commons 1.0') {
+        return `
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
+`;
+    }
+    else if (sectionText === 'GPLv3') {
+        return `
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+`;
+    }
+    else {
+        return `
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+`;
+    }
+};
 
 // Badges
 const generateBadges = sectionText => {
@@ -42,11 +62,9 @@ const generateBadges = sectionText => {
         return '';
     };
     return `
-___
-## Badges
 ${sectionText}
 `;
-}; 
+};
 
 // Contributions
 const generateContibutor = sectionText => {
@@ -58,7 +76,7 @@ ___
 ## Contributing
 ${sectionText}
 `;
-}; 
+};
 
 // Tests
 const generateTest = sectionText => {
@@ -78,29 +96,29 @@ module.exports = templateData => {
     const { Install, Usage, License, Badges, Contributors, Tests, ...theRest } = templateData;
     return `
 # ${theRest.title}
-
+${generateLicense(License)} ${generateBadges(Badges)}
+___
 ## Description
 ${theRest.description}
 ___
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [License](#license)
-* [Badges](#badges)
-* [Contributing](#contributing)
 * [Test](#test)
-* [Demo](#demo)
+* [Contributing](#contributing)
+* [License](#license)
 * [Deployment](#deployment)
 * [Questions?](#questions)
-${generateInstall(Install)}
-${generateUsage(Usage)}
-${generateLicense(License)}
-${generateBadges(Badges)}
-${generateContibutor(Contributors)}
-${generateTest(Tests)}
 ___
 ## Demo
 ![${theRest.altScreenshotInput}](${theRest.screenshot})
+${generateInstall(Install)}
+${generateUsage(Usage)}
+${generateTest(Tests)}
+${generateContibutor(Contributors)}
+___
+## License
+[${License}](https://choosealicense.com/licenses/)
 ___
 ## Deployment
 View the deployed page at : ${theRest.deployment}

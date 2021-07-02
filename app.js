@@ -108,7 +108,7 @@ const questions = [
         type: 'list',
         name: 'License',
         message: 'What type of license this project have? (Required)',
-        choices: ["MIT", "Apache-2.0", "Creative Commons 1.0", "GPLv3", "WTFPL", "Other", "None"],
+        choices: ['MIT', 'Apache-2.0', 'Creative Commons 1.0', 'GPLv3', 'WTFPL', 'None'],
         when: ({ confirmLicense }) => confirmLicense,
     },
     {
