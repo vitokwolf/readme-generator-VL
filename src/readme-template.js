@@ -62,7 +62,8 @@ const generateBadges = sectionText => {
         return '';
     };
     return `
-${sectionText}
+ ![badges](${sectionText}) 
+ 
 `;
 };
 

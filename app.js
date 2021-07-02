@@ -120,7 +120,7 @@ const questions = [
     {
         type: 'input',
         name: 'Badges',
-        message: 'What badges did you want to add to this project? (Copy them into the input)',
+        message: 'What badges did you want to add to this project? (The format should be a link like this: "https://img.shields.io/badge/<Label>-<Message>-<Color>.svg")',
         when: ({ confirmBadges }) => confirmBadges
 
     },

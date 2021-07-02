@@ -1,6 +1,6 @@
 
 # ReadMe-Generator-VL
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Language: JS](https://img.shields.io/badge/build-JavaScript/Node.js-blue.svg)
 ___
 ## Description
 A simple application to create professional markdown files for any project.
